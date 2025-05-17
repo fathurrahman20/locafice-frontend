@@ -29,7 +29,7 @@ export default function Header() {
           <div className="flex items-center gap-5">
             <Link
               to="#"
-              className="flex items-center rounded-full p-[20px_26px] gap-3 bg-[#0D903A]">
+              className="flex items-center rounded-full p-[20px_26px] gap-3 bg-[#207ECA]">
               <img
                 src="/assets/images/icons/slider-horizontal-white.svg"
                 className="w-[30px] h-[30px]"
@@ -63,7 +63,7 @@ export default function Header() {
           />
         </div>
       </section>
-      <div className="flex flex-col pt-[150px] pb-10 px-[120px] gap-10 bg-[#0D903A]">
+      <div className="flex flex-col pt-[150px] pb-10 px-[120px] gap-10 bg-[#207ECA]">
         <div className="logo-contianer flex items-center justify-center flex-wrap max-w-[1130px] h-[38px] mx-auto gap-[60px]">
           <img src="/assets/images/logos/TESLA.svg" alt="clients logo" />
           <img src="/assets/images/logos/Libra 2.svg" alt="clients logo" />

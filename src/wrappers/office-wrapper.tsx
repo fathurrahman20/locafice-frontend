@@ -15,7 +15,7 @@ export default function OfficeWrapper() {
         <a href="details.html" className="card">
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
             <div className="thumbnail-container relative w-full h-[200px]">
-              <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+              <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#207ECA] font-bold text-sm leading-[21px] text-[#F7F7FD]">
                 Popular
               </p>
               <img
