@@ -5,6 +5,7 @@ import OfficeDetails from "./pages/office-details";
 import BookOffice from "./pages/book-office";
 import SuccessBooking from "./pages/success-booking";
 import CheckBooking from "./pages/check-booking";
+import "./index.css";
 
 function App() {
   return (
