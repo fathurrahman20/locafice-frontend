@@ -6,6 +6,7 @@ import BookOffice from "./pages/book-office";
 import SuccessBooking from "./pages/success-booking";
 import CheckBooking from "./pages/check-booking";
 import "./index.css";
+import "swiper/swiper-bundle.css";
 
 function App() {
   return (
