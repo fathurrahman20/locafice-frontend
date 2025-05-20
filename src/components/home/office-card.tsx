@@ -6,9 +6,6 @@ export default function OfficeCard({ office }: { office: Office }) {
     <a href="details.html" className="card">
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
         <div className="thumbnail-container relative w-full h-[200px]">
-          {/* <p className="absolute top-5 left-5 w-fit rounded-full p-[6px_16px] bg-[#207ECA] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-            Popular
-          </p> */}
           <img
             src={`${baseImageUrl}/${office.thumbnail}`}
             className="w-full h-full object-cover"
@@ -26,7 +23,7 @@ export default function OfficeCard({ office }: { office: Office }) {
             <div className="flex items-center justify-end gap-[6px]">
               <p className="font-semibold">{office.duration} days</p>
               <img
-                src="assets/images/icons/clock.svg"
+                src="/assets/images/icons/clock.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -36,7 +33,7 @@ export default function OfficeCard({ office }: { office: Office }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/wifi.svg"
+                src="/assets/images/icons/wifi.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -44,7 +41,7 @@ export default function OfficeCard({ office }: { office: Office }) {
             </div>
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/security-user.svg"
+                src="/assets/images/icons/security-user.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -55,7 +52,7 @@ export default function OfficeCard({ office }: { office: Office }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/location.svg"
+                src="/assets/images/icons/location.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -65,5 +62,22 @@ export default function OfficeCard({ office }: { office: Office }) {
         </div>
       </div>
     </a>
+  );
+}
+
+export function OfficeCardSkeleton() {
+  return (
+    <div className="border-[1px] border-gray-400 shadow rounded-xl p-4 relative flex shrink-0 w-full h-[400px]">
+      <div className="animate-pulse flex space-x-4">
+        <div className="flex-1 space-y-6 py-1">
+          <div className="h-52 w-80 bg-slate-500 rounded"></div>
+          <div className="space-y-10">
+            <div className="h-2 bg-slate-500 rounded"></div>
+            <div className="h-2 bg-slate-500 rounded"></div>
+            <div className="h-2 bg-slate-500 rounded"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

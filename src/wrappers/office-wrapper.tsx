@@ -1,7 +1,4 @@
-// import OfficeCard from "../components/home/office-card";
-
-import { CityCardSkeleton } from "../components/home/city-card";
-import OfficeCard from "../components/home/office-card";
+import OfficeCard, { OfficeCardSkeleton } from "../components/home/office-card";
 import { useOffices } from "../hooks/office";
 
 export default function OfficeWrapper() {
@@ -20,7 +17,7 @@ export default function OfficeWrapper() {
           <OfficeCard key={office.id} office={office} />
         ))}
         {isLoading &&
-          [1, 2, 3].map((index) => <CityCardSkeleton key={index} />)}
+          [1, 2, 3].map((index) => <OfficeCardSkeleton key={index} />)}
       </div>
     </section>
   );
