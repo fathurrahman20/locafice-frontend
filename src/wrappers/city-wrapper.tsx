@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// import CityCard from "../components/home/city-card";
+import { useCities } from "../hooks/city";
+import CityCard, { CityCardSkeleton } from "../components/home/city-card";
 
 export default function CityWrapper() {
+  const { data: cityData, isLoading } = useCities();
   return (
     <section id="Cities" className="flex flex-col gap-[30px] mt-[100px]">
       <div className="w-full max-w-[1130px] mx-auto flex items-center justify-between">
@@ -21,78 +23,22 @@ export default function CityWrapper() {
             slidesPerView="auto"
             slidesOffsetAfter={30}
             slidesOffsetBefore={30}>
-            <SwiperSlide className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-              {/* <CityCard /> */}
-              <a href="city-details.html" className="card">
-                <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden">
-                  <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
-                    <h3 className="font-bold text-xl leading-[30px] text-white">
-                      Jakarta Pusat
-                    </h3>
-                    <p className="text-white">189 Offices</p>
-                  </div>
-                  <img
-                    src="/assets/images/thumbnails/thumbnails-2.png"
-                    className="absolute w-full h-full object-cover"
-                    alt="thumbnails"
-                  />
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-              {/* <CityCard /> */}
-              <a href="city-details.html" className="card">
-                <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden">
-                  <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
-                    <h3 className="font-bold text-xl leading-[30px] text-white">
-                      Jakarta Pusat
-                    </h3>
-                    <p className="text-white">189 Offices</p>
-                  </div>
-                  <img
-                    src="/assets/images/thumbnails/thumbnails-2.png"
-                    className="absolute w-full h-full object-cover"
-                    alt="thumbnails"
-                  />
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-              {/* <CityCard /> */}
-              <a href="city-details.html" className="card">
-                <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden">
-                  <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
-                    <h3 className="font-bold text-xl leading-[30px] text-white">
-                      Jakarta Pusat
-                    </h3>
-                    <p className="text-white">189 Offices</p>
-                  </div>
-                  <img
-                    src="/assets/images/thumbnails/thumbnails-2.png"
-                    className="absolute w-full h-full object-cover"
-                    alt="thumbnails"
-                  />
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-              {/* <CityCard /> */}
-              <a href="city-details.html" className="card">
-                <div className="relative flex shrink-0 w-[230px] h-[300px] rounded-[20px] overflow-hidden">
-                  <div className="relative flex flex-col justify-end w-full h-full p-5 gap-[2px] bg-[linear-gradient(180deg,_rgba(0,0,0,0)_49.87%,_rgba(0,0,0,0.8)_100%)] z-10">
-                    <h3 className="font-bold text-xl leading-[30px] text-white">
-                      Jakarta Pusat
-                    </h3>
-                    <p className="text-white">189 Offices</p>
-                  </div>
-                  <img
-                    src="/assets/images/thumbnails/thumbnails-2.png"
-                    className="absolute w-full h-full object-cover"
-                    alt="thumbnails"
-                  />
-                </div>
-              </a>
-            </SwiperSlide>
+            {cityData?.data.map((city) => (
+              <SwiperSlide
+                key={city.id}
+                className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
+                <CityCard city={city} />
+              </SwiperSlide>
+            ))}
+
+            {isLoading &&
+              [1, 2, 3, 4].map((index) => (
+                <SwiperSlide
+                  key={index}
+                  className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
+                  <CityCardSkeleton />
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
       </div>
