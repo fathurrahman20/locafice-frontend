@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import { baseImageUrl } from "../../service/api-client";
 import type { Office } from "../../types/type";
 
 export default function OfficeCard({ office }: { office: Office }) {
   return (
-    <a href="details.html" className="card">
+    <Link to={`/office/${office.slug}`} className="card">
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
         <div className="thumbnail-container relative w-full h-[200px]">
           <img
@@ -61,7 +62,7 @@ export default function OfficeCard({ office }: { office: Office }) {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
