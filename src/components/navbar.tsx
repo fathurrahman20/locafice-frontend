@@ -4,9 +4,9 @@ export default function Navbar() {
   return (
     <nav className="bg-white">
       <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto">
-        <a href="index.html">
+        <Link to="/">
           <img src="/assets/images/logos/logo.svg" alt="logo" />
-        </a>
+        </Link>
         <ul className="flex items-center gap-[50px] w-fit">
           <li>
             <Link to="/">Browse</Link>

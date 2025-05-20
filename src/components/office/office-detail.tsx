@@ -3,7 +3,7 @@ import { useOffice } from "../../hooks/office";
 
 export default function OfficeDetail({ slug }: { slug: string }) {
   const { data: office, isLoading } = useOffice(slug);
-  console.log(`This office: ${JSON.stringify(office)}`);
+
   return (
     <section
       id="Details"
