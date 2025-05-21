@@ -1,3 +1,10 @@
+import Layout from "../components/layout";
+import BookingSummary from "../components/success-booking/booking-summary";
+
 export default function SuccessBooking() {
-  return <div>SuccessBooking</div>;
+  return (
+    <Layout>
+      <BookingSummary />
+    </Layout>
+  );
 }
