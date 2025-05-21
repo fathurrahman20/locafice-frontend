@@ -21,7 +21,7 @@ export default function Navbar() {
             <Link to="/">Events</Link>
           </li>
           <li>
-            <a href="view-booking-details.html">My Booking</a>
+            <Link to="/check-booking">My Booking</Link>
           </li>
         </ul>
         <Link
