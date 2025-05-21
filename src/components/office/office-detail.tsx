@@ -43,7 +43,7 @@ export default function OfficeDetail({ slug }: { slug: string }) {
             id="my-map-display"
             className="h-full w-full max-w-[none] bg-none">
             <iframe
-              className="h-full w-full border-0"
+              className="w-full h-full border-0"
               frameBorder={0}
               src={`https://www.google.com/maps/embed/v1/place?q=${office?.data.city.name},&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
             />
@@ -52,14 +52,25 @@ export default function OfficeDetail({ slug }: { slug: string }) {
       </div>
       <div className="w-[392px] flex flex-col shrink-0 gap-[30px]">
         <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
-          <div>
-            <p className="font-extrabold text-[32px] leading-[48px] text-[#207ECA]">
-              Rp {office?.data.price.toLocaleString("id-ID")}
-            </p>
-            <p className="font-semibold mt-1">
-              For {office?.data.duration} days working
-            </p>
-          </div>
+          {office?.data.isFullBooked ? (
+            <div>
+              <p className="font-bold text-xl leading-[30px]">
+                Sorry. This office is{" "}
+                <span className="text-[#FF2D2D]">fully booked</span> at this
+                moment, try next time.
+              </p>
+            </div>
+          ) : (
+            <div>
+              <p className="font-extrabold text-[32px] leading-[48px] text-[#207ECA]">
+                Rp {office?.data.price.toLocaleString("id-ID")}
+              </p>
+              <p className="mt-1 font-semibold">
+                For {office?.data.duration} days working
+              </p>
+            </div>
+          )}
+
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-5">
             {office?.data.benefits.map((benefit) => (
@@ -75,16 +86,18 @@ export default function OfficeDetail({ slug }: { slug: string }) {
           </div>
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-[14px]">
-            <Link
-              to={`/office/${office?.data.slug}/book`}
-              className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#207ECA] font-bold text-[#F7F7FD]">
-              <img
-                src="/assets/images/icons/slider-horizontal-white.svg"
-                className="w-6 h-6"
-                alt="icon"
-              />
-              <span>Book This Office</span>
-            </Link>
+            {!office?.data.isFullBooked && (
+              <Link
+                to={`/office/${office?.data.slug}/book`}
+                className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#207ECA] font-bold text-[#F7F7FD]">
+                <img
+                  src="/assets/images/icons/slider-horizontal-white.svg"
+                  className="w-6 h-6"
+                  alt="icon"
+                />
+                <span>Book This Office</span>
+              </Link>
+            )}
             <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
               <img
                 src="/assets/images/icons/save-add.svg"

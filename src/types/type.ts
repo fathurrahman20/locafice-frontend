@@ -5,6 +5,7 @@ export interface Office {
   name: string;
   slug: string;
   city: City;
+  isFullBooked: boolean;
   thumbnail: string;
   photos: Photo[];
   benefits: Benefit[];
